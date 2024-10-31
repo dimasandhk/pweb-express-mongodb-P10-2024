@@ -1,7 +1,10 @@
 import express from "express";
+import routes from "./routes";
+import "./db-connection";
 
 const app = express();
 app.use(express.json());
+app.use(routes);
 
 app.get("/", (_, res) => {
   const currentTime = new Date().toLocaleString();
