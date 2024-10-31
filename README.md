@@ -8,4 +8,12 @@
 
 - clone repo ini
 - `npm install`
+- setup environment variable dengan membuat file `.env` pada root folder dan isi file dengan template sebagai berikut:
+
+```
+MONGODB_URI=mongodb+srv://[username]:[pw]@[]/?retryWrites=true&w=majority&appName=[]
+PORT=3000
+JWT_SECRET=[]
+```
+
 - `npm run start:dev`
