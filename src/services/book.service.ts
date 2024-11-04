@@ -53,6 +53,15 @@ export const BookService = {
     }
   },
 
+  async delete(id: string) {
+    try {
+      const book = await Book.findByIdAndDelete(id);
+      return { book };
+    } catch (err) {
+      throw err;
+    }
+  },
+
   async create(request: CreateBookRequest) {
     const newBook = new Book(request);
 

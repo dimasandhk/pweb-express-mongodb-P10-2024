@@ -110,4 +110,28 @@ export const BookController = {
       }
     }
   },
+
+  async delete(req: Request, res: Response, next: NextFunction) {
+    try {
+      const { book } = await BookService.delete(req.params.id);
+
+      if (!book) {
+        res.status(404).send({
+          status: "failed",
+          message: "Book not found",
+        });
+      } else {
+        res.status(200).send({
+          status: "success",
+          message: "Successfully remove book",
+        });
+      }
+    } catch (error: any) {
+      res.status(400).send({
+        status: "error",
+        message: error.message,
+        data: {},
+      });
+    }
+  },
 };
