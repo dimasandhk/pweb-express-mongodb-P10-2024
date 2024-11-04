@@ -6,4 +6,6 @@ import { auth } from "../middleware/auth";
 
 router.post("/", auth, BookController.create);
 
+router.patch("/:id", auth, BookController.update);
+
 export default router;
