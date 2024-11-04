@@ -44,6 +44,15 @@ export const BookService = {
     }
   },
 
+  async getById(id: string) {
+    try {
+      const book = await Book.findById(id);
+      return { book };
+    } catch (err) {
+      throw err;
+    }
+  },
+
   async create(request: CreateBookRequest) {
     const newBook = new Book(request);
 

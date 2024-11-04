@@ -25,6 +25,33 @@ export const BookController = {
     }
   },
 
+  async getById(req: Request, res: Response, next: NextFunction) {
+    try {
+      const { book } = await BookService.getById(req.params.id);
+
+      if (!book) {
+        res.status(404).send({
+          status: "failed",
+          message: "Book not found",
+          data: {},
+        });
+        return;
+      } else {
+        res.status(200).send({
+          status: "success",
+          message: "Successfully get book by id",
+          data: book,
+        });
+      }
+    } catch (error: any) {
+      res.status(400).send({
+        status: "error",
+        message: error.message,
+        data: {},
+      });
+    }
+  },
+
   async create(req: Request, res: Response, next: NextFunction) {
     try {
       const { book } = await BookService.create(req.body as CreateBookRequest);
