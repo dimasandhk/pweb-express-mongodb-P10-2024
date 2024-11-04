@@ -7,13 +7,31 @@ import {
 } from "../services/book.service";
 
 export const BookController = {
+  async getAll(req: Request, res: Response, next: NextFunction) {
+    try {
+      const { books } = await BookService.getAll();
+
+      res.status(200).send({
+        status: "success",
+        message: "Successfully get all books",
+        data: [...books],
+      });
+    } catch (error: any) {
+      res.status(400).send({
+        status: "error",
+        message: error.message,
+        data: {},
+      });
+    }
+  },
+
   async create(req: Request, res: Response, next: NextFunction) {
     try {
       const { book } = await BookService.create(req.body as CreateBookRequest);
 
       res.status(201).send({
         status: "success",
-        message: "Book created successfully",
+        message: "Book added successfully",
         data: {
           book,
         },

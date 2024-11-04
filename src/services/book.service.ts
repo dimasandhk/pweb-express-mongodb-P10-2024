@@ -35,6 +35,15 @@ interface UpdateBookRequest {
 export type { CreateBookRequest, UpdateBookRequest };
 
 export const BookService = {
+  async getAll() {
+    try {
+      const books = await Book.find();
+      return { books };
+    } catch (err) {
+      throw err;
+    }
+  },
+
   async create(request: CreateBookRequest) {
     const newBook = new Book(request);
 
