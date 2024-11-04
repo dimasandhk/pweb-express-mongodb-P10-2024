@@ -11,7 +11,7 @@
 - setup environment variable dengan membuat file `.env` pada root folder dan isi file dengan template sebagai berikut:
 
 ```
-MONGODB_URI=mongodb+srv://[username]:[pw]@[]/?retryWrites=true&w=majority&appName=[]
+MONGODB_URI=mongodb+srv://[username]:[pw]@[cluster-name]/[db-name]?retryWrites=true&w=majority&appName=[]
 PORT=3000
 JWT_SECRET=[]
 ```
