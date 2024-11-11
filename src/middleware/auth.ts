@@ -20,10 +20,7 @@ export const auth = async (req: Request, res: Response, next: NextFunction) => {
     }
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET) as jwt.JwtPayload;
-    const user = await User.findOne({
-      _id: decoded._id,
-      "tokens.token": token,
-    });
+    const user = await User.findOne({ _id: decoded._id });
 
     if (!user) {
       throw new Error("User not found");
