@@ -10,8 +10,8 @@ app.get("/", (_, res) => {
   const currentTime = new Date().toLocaleString();
   res.status(200).send({
     status: "success",
-    message: "pong, " + currentTime,
-    data: {},
+    message: "pong",
+    date: currentTime,
   });
 });
 

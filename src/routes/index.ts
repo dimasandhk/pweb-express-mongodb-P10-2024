@@ -7,7 +7,7 @@ import bookRoute from "./book.route";
 import mechanismRoute from "./mechanism.route";
 
 router.use("/auth", authRoute);
-router.use("/book", bookRoute);
+router.use("/", bookRoute);
 router.use("/mechanism", mechanismRoute);
 
 export default router;
